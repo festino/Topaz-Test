@@ -1,0 +1,28 @@
+﻿<Window x:Class="TopazTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:TopazTest.ViewModels"
+        xmlns:local="clr-namespace:TopazTest"
+        mc:Ignorable="d"
+        Title="Приложение" Height="300" Width="500">
+    <Window.DataContext>
+        <viewModels:SomeViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Значение:" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Label Content="{Binding Data}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1"/>
+        <Button
+            Content="Изменить значение"
+            Command="{Binding GetDataCommand}" HorizontalAlignment="Center"  VerticalAlignment="Top" Grid.Row="1" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
